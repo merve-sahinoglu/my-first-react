@@ -23,10 +23,17 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseDataHandler = (enteredExpenseData) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    console.table(expenseData);
+  };
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpenseData={addExpenseDataHandler} />
       <Expenses items={expenses} />
     </div>
   );
